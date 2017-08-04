@@ -1,0 +1,62 @@
+CREATE TABLE Items(
+IID 	    integer NOT NULL AUTO_INCREMENT,
+IName	    varchar(30) NOT NULL,
+IStatus   varchar(10) NOT NULL,
+Owner     integer NOT NULL,
+Storer    integer NOT NULL,
+Location  integer NOT NULL,
+IDesc     text  NOT NULL,
+PRIMARY KEY(IID)
+ FOREIGN KEY (Owner) REFERENCES Users(UID),
+ FOREIGN KEY (Storer) REFERENCES Users(UID),
+ FOREIGN KEY (Location) REFERENCES Location(LID)
+);
+
+CREATE TABLE Users(
+UID     integer NOT NULL AUTO_INCREMENT,
+AccType varchar(11) NOT NULL,
+Pass    varchar(30) NOT NULL,
+Fname   Varchar(20) NOT NULL,
+Lname   Varchar(20) NOT NULL,
+Bday    Date NOT NULL,
+Phnum   varchar(10) NOT NULL,
+Email   varchar(35) NOT NULL,
+Photo   longblob NOT NULL,
+PRIMARY KEY(UID)
+);
+
+CREATE TABLE Items(
+
+
+);
+
+CREATE TABLE Items(
+
+
+);
+
+CREATE TABLE Items(
+
+
+);
+
+CREATE TABLE Items(
+
+
+);
+
+CREATE TABLE Items(
+
+
+);
+
+CREATE TABLE Items(
+
+
+);
+
+CREATE TABLE Items(
+
+
+);
+
