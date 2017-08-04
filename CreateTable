@@ -7,9 +7,9 @@ Storer    integer NOT NULL,
 Location  integer NOT NULL,
 IDesc     text  NOT NULL,
 PRIMARY KEY(IID)
- FOREIGN KEY (Owner) REFERENCES Users(UID),
- FOREIGN KEY (Storer) REFERENCES Users(UID),
- FOREIGN KEY (Location) REFERENCES Location(LID)
+FOREIGN KEY (Owner) REFERENCES Users(UID),
+FOREIGN KEY (Storer) REFERENCES Users(UID),
+FOREIGN KEY (Location) REFERENCES Location(LID)
 );
 
 CREATE TABLE Users(
@@ -25,9 +25,22 @@ Photo   longblob NOT NULL,
 PRIMARY KEY(UID)
 );
 
-CREATE TABLE Items(
-
-
+CREATE TABLE Trip(
+TID    Integer NOT NULL AUTO_INCREMENT,
+Owner  Integer NOT NULL,
+Storer Integer NOT NULL,
+Driver Integer NOT NULL,
+StartT Timestamp NOT NULL,
+EndT   Timestamp NOT NULL,
+Vehicle Integer NOT NULL,
+Cost   Decimal NOT NULL,
+Item   Integer NOT NULL,
+PRIMARY KEY(TID),
+FOREIGN KEY (Owner) REFERENCES Users(UID),
+FOREIGN KEY (Storer) REFERENCES Users(UID),
+FOREIGN KEY (Driver) REFERENCES Users(UID),
+FOREIGN KEY (Vehicle) REFERENCES Vehicle(VPlate),
+FOREIGN KEY (Item) REFERENCES Items(IID)
 );
 
 CREATE TABLE Items(
