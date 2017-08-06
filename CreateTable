@@ -43,9 +43,16 @@ FOREIGN KEY (Vehicle) REFERENCES Vehicle(VPlate),
 FOREIGN KEY (Item) REFERENCES Items(IID)
 );
 
-CREATE TABLE Items(
-
-
+CREATE TABLE Events(
+EID     Integer NOT NULL AUTO_INCREMEMNT,
+Item    Integer NOT NULL,
+Location Integer NOT NULL,
+Start   Timestamp NOT NULL,
+End     Timestamp NOT NULL,
+Rate    Decimal  NOT NULL,
+PRIMARY KEY(EID),
+FOREIGN KEY (ITEM) REFERENCES Items (IID),
+FOREIGN KEY (LOCATION) References Locations (LID)
 );
 
 CREATE TABLE Items(
