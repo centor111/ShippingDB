@@ -55,23 +55,29 @@ FOREIGN KEY (ITEM) REFERENCES Items (IID),
 FOREIGN KEY (LOCATION) References Locations (LID)
 );
 
-CREATE TABLE Items(
-
-
+CREATE TABLE Vehicle(
+Owner   Integer NOT NULL,
+Vehicle Varchar(6) NOT NULL,
+VCap    Varchar(1) NOT NULL,
+PRIMARY KEY(Vehicle),
+FOREIGN KEY (OWNER) References Users(UID)
 );
 
-CREATE TABLE Items(
-
-
+CREATE TABLE Specialty(
+Specialty varchar(10) NOT NULL,
+Item      Integer NOT NULL,
+PRIMARY KEY(Specialty, Item),
+FOREIGN KEY (Item) References Items(IID)
 );
 
-CREATE TABLE Items(
-
-
+CREATE TABLE Caters(
+Place     Integer NOT NULL,
+Specialty Varchar(10) NOT NULL,
+PRIMARY KEY(Place, Specialty),
+FOREIGN KEY (Place) REFRENCES Location(LID)
 );
 
-CREATE TABLE Items(
-
+CREATE TABLE Tag(
 
 );
 
