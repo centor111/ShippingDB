@@ -6,10 +6,10 @@ Owner     integer NOT NULL,
 Storer    integer NOT NULL,
 Location  integer NOT NULL,
 IDesc     Text  NOT NULL,
-PRIMARY KEY(IID)
-FOREIGN KEY (Owner) REFERENCES Users(UID),
-FOREIGN KEY (Storer) REFERENCES Users(UID),
-FOREIGN KEY (Location) REFERENCES Location(LID)
+PRIMARY KEY(IID),
+FOREIGN KEY(Owner) REFERENCES Users(UID),
+FOREIGN KEY(Storer) REFERENCES Users(UID),
+FOREIGN KEY(Location) REFERENCES Location(LID)
 );
 
 CREATE TABLE Users(
@@ -36,23 +36,23 @@ Vehicle Integer NOT NULL,
 Cost   Decimal NOT NULL,
 Item   Integer NOT NULL,
 PRIMARY KEY(TID),
-FOREIGN KEY (Owner) REFERENCES Users(UID),
-FOREIGN KEY (Storer) REFERENCES Users(UID),
-FOREIGN KEY (Driver) REFERENCES Users(UID),
-FOREIGN KEY (Vehicle) REFERENCES Vehicle(VPlate),
-FOREIGN KEY (Item) REFERENCES Items(IID)
+FOREIGN KEY(Owner) REFERENCES Users(UID),
+FOREIGN KEY(Storer) REFERENCES Users(UID),
+FOREIGN KEY(Driver) REFERENCES Users(UID),
+FOREIGN KEY(Vehicle) REFERENCES Vehicle(VPlate),
+FOREIGN KEY(Item) REFERENCES Items(IID)
 );
 
 CREATE TABLE Events(
-EID     Integer NOT NULL AUTO_INCREMEMNT,
+EID     Integer NOT NULL AUTO_INCREMENT,
 Item    Integer NOT NULL,
 Location Integer NOT NULL,
 Start   Timestamp NOT NULL,
 End     Timestamp NOT NULL,
 Rate    Decimal  NOT NULL,
 PRIMARY KEY(EID),
-FOREIGN KEY (ITEM) REFERENCES Items (IID),
-FOREIGN KEY (LOCATION) References Locations (LID)
+FOREIGN KEY(ITEM) REFERENCES Items (IID),
+FOREIGN KEY(LOCATION) References Locations (LID)
 );
 
 CREATE TABLE Vehicle(
@@ -60,28 +60,28 @@ Owner   Integer NOT NULL,
 Vehicle Varchar(6) NOT NULL,
 VCap    Varchar(1) NOT NULL,
 PRIMARY KEY(Vehicle),
-FOREIGN KEY (OWNER) References Users(UID)
+FOREIGN KEY(OWNER) References Users(UID)
 );
 
 CREATE TABLE Specialty(
 Specialty varchar(10) NOT NULL,
 Item      Integer NOT NULL,
 PRIMARY KEY(Specialty, Item),
-FOREIGN KEY (Item) References Items(IID)
+FOREIGN KEY(Item) References Items(IID)
 );
 
 CREATE TABLE Caters(
 Place     Integer NOT NULL,
 Specialty Varchar(10) NOT NULL,
 PRIMARY KEY(Place, Specialty),
-FOREIGN KEY (Place) REFRENCES Location(LID)
+FOREIGN KEY(Place) REFERENCES Location(LID)
 );
 
 CREATE TABLE Tag(
 Location Integer NOT NULL,
-Tag      String  NOT NULL,
+Tag      Varchar(15) NOT NULL,
 PRIMARY KEY(Location, Tag),
-FOREIGN KEY (LOCATION) REFERENCES Location(LID)
+FOREIGN KEY(LOCATION) REFERENCES Location(LID)
 );
 
 CREATE TABLE Location(
@@ -98,7 +98,7 @@ Renter INTEGER NOT NULL,
 PaySys VarChar(15) NOT NULL,
 Expenditure Decimal NOT NULL,
 Primary Key(Renter),
-Foreign Key (Renter) References Users(UID)
+Foreign Key(Renter) References Users(UID)
 );
 
 CREATE TABLE Transporter(
@@ -106,7 +106,7 @@ Transporter Integer NOT NULL,
 PaySys      Varchar(15) NOT NULL,
 Dlice       Varchar(9) NOT NULL,
 Primary Key(Transporter),
-FOREIGN KEY (Transporter) REFERENCES Users(UID)
+FOREIGN KEY(Transporter) REFERENCES Users(UID)
 );
 
 CREATE TABLE Storer(
@@ -114,5 +114,5 @@ Storer INTEGER NOT NULL,
 PaySys Varchar(15) NOT NULL,
 Income Decimal NOT NULL,
 Primary Key(Storer),
-Foreign Key (Storer) REFERENCES Users(UID)
+Foreign Key(Storer) REFERENCES Users(UID)
 );
