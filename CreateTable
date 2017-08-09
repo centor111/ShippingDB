@@ -5,7 +5,7 @@ IStatus   varchar(10) NOT NULL,
 Owner     integer NOT NULL,
 Storer    integer NOT NULL,
 Location  integer NOT NULL,
-IDesc     text  NOT NULL,
+IDesc     Text  NOT NULL,
 PRIMARY KEY(IID)
 FOREIGN KEY (Owner) REFERENCES Users(UID),
 FOREIGN KEY (Storer) REFERENCES Users(UID),
@@ -78,11 +78,41 @@ FOREIGN KEY (Place) REFRENCES Location(LID)
 );
 
 CREATE TABLE Tag(
-
+Location Integer NOT NULL,
+Tag      String  NOT NULL,
+PRIMARY KEY(Location, Tag),
+FOREIGN KEY (LOCATION) REFERENCES Location(LID)
 );
 
-CREATE TABLE Items(
-
-
+CREATE TABLE Location(
+LID     Integer AUTO_INCREMENT NOT NULL,
+LName   Varchar(50) NOT NULL,
+LDesc   Text NOT NULL,
+Owner   Integer NOT NULL,
+PRIMARY KEY(LID),
+FOREIGN KEY(owner) REFERENCES Users(UID)
 );
 
+CREATE TABLE Renter(
+Renter INTEGER NOT NULL,
+PaySys VarChar(15) NOT NULL,
+Expenditure Decimal NOT NULL,
+Primary Key(Renter),
+Foreign Key (Renter) References Users(UID)
+);
+
+CREATE TABLE Transporter(
+Transporter Integer NOT NULL,
+PaySys      Varchar(15) NOT NULL,
+Dlice       Varchar(9) NOT NULL,
+Primary Key(Transporter),
+FOREIGN KEY (Transporter) REFERENCES Users(UID)
+);
+
+CREATE TABLE Storer(
+Storer INTEGER NOT NULL,
+PaySys Varchar(15) NOT NULL,
+Income Decimal NOT NULL,
+Primary Key(Storer),
+Foreign Key (Storer) REFERENCES Users(UID)
+);
