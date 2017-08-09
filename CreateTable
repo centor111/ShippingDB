@@ -32,7 +32,7 @@ Storer Integer NOT NULL,
 Driver Integer NOT NULL,
 StartT Timestamp NOT NULL,
 EndT   Timestamp NOT NULL,
-Vehicle Integer NOT NULL,
+Vehicle Varchar(6) NOT NULL,
 Cost   Decimal NOT NULL,
 Item   Integer NOT NULL,
 PRIMARY KEY(TID),
@@ -52,12 +52,12 @@ End     Timestamp NOT NULL,
 Rate    Decimal  NOT NULL,
 PRIMARY KEY(EID),
 FOREIGN KEY(ITEM) REFERENCES Items (IID),
-FOREIGN KEY(LOCATION) References Locations (LID)
+FOREIGN KEY(LOCATION) References Location (LID)
 );
 
 CREATE TABLE Vehicle(
 Owner   Integer NOT NULL,
-Vehicle Varchar(6) NOT NULL,
+Vplate Varchar(6) NOT NULL,
 VCap    Varchar(1) NOT NULL,
 PRIMARY KEY(Vehicle),
 FOREIGN KEY(OWNER) References Users(UID)
