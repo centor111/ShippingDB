@@ -1,3 +1,6 @@
+order of creation
+users > items > location > vehicle > trip > events > caters > specialty > renter > storer > Transporter> tag 
+
 CREATE TABLE Items(
 IID 	    integer NOT NULL AUTO_INCREMENT,
 IName	    varchar(30) NOT NULL,
