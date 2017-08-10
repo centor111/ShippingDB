@@ -1,6 +1,6 @@
 <?php
 
-require('listallusers.php'); 
+require('loginscript.php'); 
 //remember $username and $password taken as variables
 
 $ok = 0;  //assume nothing is ok, collect evidence to prove otherwise
@@ -8,10 +8,10 @@ $ok = 0;  //assume nothing is ok, collect evidence to prove otherwise
 if(isset($_POST["submit"]))
 {
 	//submit clicked, user possibly logged in - check
-	$who = $_POST['user'];
-	$pw = $_POST['pw'];
+	$account = $_POST['user'];
+	$inpw = $_POST['pw'];
 
-	$verify = 'select * from usersPW where user="'.$who.'"';
+	$verify = 'select * from users where email="'.$account.'"';
 
 	$answertable = mysql_query($verify, $connection);
 
@@ -19,9 +19,9 @@ if(isset($_POST["submit"]))
 	  	echo 'Invalid username or password';
 	}else{
 		//retrieve password for that user
-	  	list($usr, $pwd) = mysql_fetch_row($answertable);
+	  	list($user, $pass) = mysql_fetch_row($answertable);
 
-	  	if (MD5($pw) == $pwd){
+	  	if (whirlpool($inpw) == $pass){
 
             $ok = 1; //valid user and password, meaning all is OK
 	  		echo 'Welcome '.$usr;
