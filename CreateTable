@@ -60,7 +60,7 @@ FOREIGN KEY(LOCATION) References Location (LID)
 
 CREATE TABLE Vehicle(
 Owner   Integer NOT NULL,
-Vplate Varchar(6) NOT NULL,
+Vplate Varchar(10) NOT NULL,
 VCap    Varchar(1) NOT NULL,
 PRIMARY KEY(Vplate),
 FOREIGN KEY(OWNER) References Users(UID)
