@@ -23,7 +23,7 @@ if(!$answertable){
 }else {
 	//get the retreived data
 	//echo 'data found';
-	while(list($usr,$pw) = mysql_fetch_row($answertable));
+	while(list($email,$pass) = mysql_fetch_row($answertable));
 		echo '<br />'.$usr.',';
 		echo $;
 }
