@@ -18,7 +18,7 @@ FOREIGN KEY(Location) REFERENCES Location(LID)
 CREATE TABLE Users(
 UID     integer NOT NULL AUTO_INCREMENT,
 AccType varchar(11) NOT NULL,
-Pass    varchar(30) NOT NULL,
+Pass    varchar(512) NOT NULL,
 Fname   Varchar(20) NOT NULL,
 Lname   Varchar(20) NOT NULL,
 Bday    Date NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE Vehicle(
 Owner   Integer NOT NULL,
 Vplate Varchar(6) NOT NULL,
 VCap    Varchar(1) NOT NULL,
-PRIMARY KEY(Vehicle),
+PRIMARY KEY(Vplate),
 FOREIGN KEY(OWNER) References Users(UID)
 );
 
