@@ -2,3 +2,5 @@ INSERT INTO Users VALUES (1,'renter','password','John','Doe','1995-05-02 06:22:1
 INSERT INTO USERS VALUES (2,'Storer','wordpass','Billibob','Jakins','1985-03-06 04:12:02','0414326096','BilDaBob.Hotmail.com','anne.jpeg');
 INSERT INTO LOCATION Values(1,'24 Stellmac st', 'An empty attic in the roof of the house',2)
 INSERT INTO Items VALUES (1,'Box-Toys','Live',1,2,1,'A box of toys bound for college');
+INSERT INTO Storer VALUES(2,0,'Paypal')
+INSERT INTO Renter VALUES(1,'Paypal',0)
