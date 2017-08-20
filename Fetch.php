@@ -13,7 +13,7 @@
  define("DB_HOST", "192.168.0.26");
 define("DB_USER", "root");
 define("DB_PASSWORD", "");
-define("DB_DATABASE", "databasename");
+define("DB_DATABASE", "wairhouse");
  $link = mysqli_connect("localhost", "root", "")  or die("Unable to connect");
  print "The Items you currently have registered:";
  mysqli_select_db($link,"wairhouse") or die("Unable to select database");
