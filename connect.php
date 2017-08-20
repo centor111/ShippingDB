@@ -8,7 +8,7 @@ define("DB_DATABASE", "wairhouse");
 
 //build a bridge to the server
 $link = mysqli_connect("localhost", "root", "")  or die("Unable to connect");
-mysqli_select_db($wairhouse) or die('Problems connecting to database');
+mysqli_select_db($link,"wairhouse") or die('Problems connecting to database');
 
 ?>
 
