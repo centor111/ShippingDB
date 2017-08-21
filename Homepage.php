@@ -6,6 +6,7 @@
     <?php
     $_post['item']='';  
     $_post['description']='';
+    $_post['CurrrentUser'}='';
     ?> 
     <form name="Adoption" method="post" action=">
       <p> Item name: <input type="text" name="item" value="<?php echo $_post['item']; ?>"></p>
@@ -34,15 +35,15 @@ if(isset($_POST["submit"]))
 		//retrieve password for that user
 	  	list($usr, $pwd) = mysql_fetch_row($answertable);
 
-	  	if (MD5($pw) == $pwd){
+	  	if (Whirlpool($pw) == $pwd){
 
             $ok = 1; //valid user and password, meaning all is OK
 	  		echo 'Welcome '.$usr;
 
 	  		//do stuff here because you have a valid user
 	  		echo '<br><a href="login.php">logout</a>';
-
-
+			$_SESSION['CurrentUser']=$usr;
+			
 	  	}else{
 	  		echo 'Invalid username or password, try again.<br><br>';
 	  	}
