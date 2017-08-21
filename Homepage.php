@@ -42,7 +42,8 @@ if(isset($_POST["submit"]))
 
 	  		//do stuff here because you have a valid user
 	  		echo '<br><a href="login.php">logout</a>';
-			$_SESSION['CurrentUser']=$usr;
+			$userval = 'select uid from usersPW where user="'.$usr.'"'
+			$_SESSION['CurrentUser']=mysql_query($userval, $connection);
 			
 	  	}else{
 	  		echo 'Invalid username or password, try again.<br><br>';
