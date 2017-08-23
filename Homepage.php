@@ -43,7 +43,10 @@ if(isset($_POST["submit"]))
 	  		//do stuff here because you have a valid user
 	  		echo '<br><a href="login.php">logout</a>';
 			$userval = 'select uid from usersPW where user="'.$usr.'"'
+			$locval = 'select Lname from location where owner="'.$userval.'"'
 			$_SESSION['CurrentUser']=mysql_query($userval, $connection);
+			$_SESSION['CurrentLocation']=mysql_query($locval, $connection);
+			
 			
 	  	}else{
 	  		echo 'Invalid username or password, try again.<br><br>';
