@@ -17,7 +17,7 @@ FOREIGN KEY(Location) REFERENCES Location(LID)
 
 CREATE TABLE Users(
 UID     integer NOT NULL AUTO_INCREMENT,
-AccType varchar(11) NOT NULL,
+AccType integer(1) NOT NULL,
 Pass    varchar(512) NOT NULL,
 Fname   Varchar(20) NOT NULL,
 Lname   Varchar(20) NOT NULL,
