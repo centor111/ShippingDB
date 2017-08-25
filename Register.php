@@ -46,12 +46,12 @@ if (isset($_POST['submit'])){
 ///No workie zone from here
 	$queryy='select UID from users where Email = "'.$d.'";';
 	$result= mysqli_query($link,$queryy);
-    while($row = mysqli_fetch_assoc($result) {
-    $UsrID= $row['UID'];
-}
-     $locat  = 'insert into location(Lname,LDesc,Owner)
+    while($row = mysqli_fetch_row($result)) {
+    $UsrID = $row[0] ;
+     $locata  = 'insert into location(Lname,LDesc,Owner)
 				values("'.$Address.'","'.$Desc.'",'.$UsrID.')';
-     mysqli_query($link,$locat);
+     mysqli_query($link,$locata);
+ }
 }
 ?>
 </body>
