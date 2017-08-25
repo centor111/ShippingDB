@@ -19,11 +19,11 @@ if (isset($_POST['submit'])){
 	$a = $_POST['itmname'];
 	$b = '0';             //0 is storage required, 1 is currently stored, 2 is retreived
   $c = $_SESSION['CurrentUser'];
-	$d = '';              //no storer not applicable
-	$e = '';              //no storer not applicable
+	$d = $_SESSION['CurrentUser'];              //no storer not applicable
+	$e = $_SESSION['CurrentLocation'];              //no storer not applicable
 	$f = $_POST['desc'];
 //handle photos later
-	$insert = 'insert into items(IID,IName,IStatus,Owner,Storer,Location,IDesc)
+	$insert = 'insert into items(IName,IStatus,Owner,Storer,Location,IDesc)
 			 values ("'.$a.'","'.$b.'","'.$c.'","'.$d.'","'.$e.'","'.$f.'")';
 	mysql_query($link,$insert);
 }
