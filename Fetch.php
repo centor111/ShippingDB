@@ -12,7 +12,7 @@
  //query engine 
  require('connect.php');
  print "The Items you currently have registered:";
- $query = stripslashes("Select * from Items where Owner = $user");  //Find the items the user owns
+ $query = stripslashes("Select * from Items where Owner = $_SESSION['currentuser']");  //Find the items the user owns
  $result = mysqli_query($link,$query);  
  $rows = mysqli_num_rows($result); 
  //print "There are  $rows results<p>";  
