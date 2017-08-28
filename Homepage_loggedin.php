@@ -25,9 +25,9 @@ if (isset($_POST['submit'])){
 	require('connect.php');
 	$a = $_POST['Iname'];
 	$b = $_POST['Idesc'];
-  $c = $_Session['Currentuser'];
-  $d = 0;
-  $e = $_Session['CurrentLocation'];
+	$c = $_Session['Currentuser'];
+	$d = 0;
+	$e = $_Session['CurrentLocation'];
 	$insert = 'insert into Items(IName, IDesc, Owner, Storer, IStatus, ILocation)
 			 values("'.$a.'","'.$b.'","'.$c.'","'.$c.'","'.$d.'","'.$e.'")';
 	mysqli_query($link,$insert);
