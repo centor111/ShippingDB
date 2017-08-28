@@ -11,12 +11,12 @@
 if (isset($_POST['submit'])){
 	//stuff to add to the table
   $a = $_POST['IID'];
-  $mystoreditems = 'select count(*) from items where ((IID = '.$a.') and (Owner = '.$_Session['currentuser'].') and (Status = 1)'
+  $mystoreditems = 'select count(*) from items where ((IID = '.$a.') and (Owner = '.$_Session['currentuser'].') and (Status = "Live")'
   $valid = mysqli_query($link,$mystoreditems);
   if($valid == 1) {
     $Update = 'Update items
-               set IStatus = 2, Storer = '.$_SESSION['Currentuser'].', Location = '.$_SESSION['Currentlocation'].'
-               where ((IID = '.$a.') and (Owner = '.$_Session['currentuser'].') and (Status = 1)'
+               set IStatus = "Retrieved, Storer = '.$_SESSION['Currentuser'].', Location = '.$_SESSION['Currentlocation'].'
+               where ((IID = '.$a.') and (Owner = '.$_Session['currentuser'].') and (Status = "Live")'
     mysql_query($link,$Update);
     
 		
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])){
   
 	require('connect.php');
 	$a = $_POST['itmname'];
-	$b = '0';             //0 is storage required, 1 is currently stored, 2 is retreived
+	$b = 'LIVE';             //0 is storage required, 1 is currently stored, 2 is retreived
   $c = $_SESSION['CurrentUser'];
 	$d = $_SESSION['CurrentUser'];              //no storer not applicable
 	$e = $_SESSION['CurrentLocation'];              //no storer not applicable
