@@ -7,8 +7,6 @@
   <body>
   	<img src="http://imgur.com/MJw1ovr.jpg"/>
  <?php    
- $user = 1;                        //////IMPORTANT ~~~~ TEMPORARY.
- //phpinfo();
  //query engine 
  require('connect.php');
  print "The Items you currently have registered:";
