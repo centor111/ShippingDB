@@ -7,17 +7,12 @@
   <body>
   	<img src="http://imgur.com/MJw1ovr.jpg"/>
  <?php    
- $user = 1;
+ $user = 1;                        //////IMPORTANT ~~~~ TEMPORARY.
  //phpinfo();
  //query engine 
- define("DB_HOST", "192.168.0.26");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
-define("DB_DATABASE"," wairhouse");
- $link = mysqli_connect("localhost", "root", "")  or die("Unable to connect");
+ require('connect.php');
  print "The Items you currently have registered:";
- mysqli_select_db($link,"wairhouse") or die("Unable to select database");
- $query = stripslashes("Select * from Items where Owner = $user");  //Find the user
+ $query = stripslashes("Select * from Items where Owner = $user");  //Find the items the user owns
  $result = mysqli_query($link,$query);  
  $rows = mysqli_num_rows($result); 
  //print "There are  $rows results<p>";  
