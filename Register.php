@@ -43,7 +43,7 @@ if (isset($_POST['submit'])){
 	$insert = 'insert into users(Fname,Lname,Bday,Email,Phnum,Acctype,Pass,Photo)
 			 values("'.$a.'","'.$b.'","'.$c.'","'.$d.'","'.$e.'","'.$f.'","'.$g.'","JohnDoe.png")';
 	mysqli_query($link,$insert);
-///No workie zone from here
+///find the user being registered
 	$queryy='select UID from users where Email = "'.$d.'";';
 	$result= mysqli_query($link,$queryy);
     while($row = mysqli_fetch_row($result)) {
