@@ -1,3 +1,6 @@
+<?PHP
+Session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head><title>Register a New Account</title></head>
@@ -12,7 +15,7 @@
 		<tr><td>Email:</td><td>                   <input type="text" name="email" required></td></tr>
 		<tr><td>Phone Number:</td><td>              <input type="text" name="phnum" required></td></tr>
 		<tr><td>Password:</td><td>                   <input type="text" name="Pass" required></td></tr>
-		<tr><td>Account type:</td><td>              <select name="joe" required>
+		<tr><td>Account type:</td><td>              <select name="accounttype" required>
  													 <option value="Renter">Renter</option>
 													 <option value="Storer">Storer</option>
 													 <option value="Transporter">Transporter</option>
@@ -35,7 +38,7 @@ if (isset($_POST['submit'])){
 	$c = $_POST['dob'];
 	$d = $_POST['email'];
 	$e = $_POST['phnum'];
-	$f = $_POST['joe'];
+	$f = $_POST['accounttype'];
 	$g = hash('whirlpool',$_POST['Pass']);
 	$Address = $_POST['place'];
 	$Desc = $_POST['descripacito'];
