@@ -24,11 +24,16 @@
     <?php
         break;
     case "storer":
-	  ?>
+	 
+	  if (isset($_POST['submit'])){
+		  session_unset(); 
+		session_destroy();
+	  } else { ?>
        <form action="Homepage_loggedin.php" method="get">
  <input type="submit" formaction="storefetch.php" value="my items"> 
 	</form>
-	  <?php
+	  <?php }
+	  
         break;
     case "transporter":
         Echo "Work in Progress";
