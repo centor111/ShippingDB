@@ -1,7 +1,5 @@
-<?PHP
-Session_start();
-?>
 <!DOCTYPE html>
+<?php session_start() ?>
 <html>
   <head><title>Register a New Account</title></head>
  	<link type='text/css' rel='stylesheet' href='style.css'/>
@@ -55,6 +53,18 @@ if (isset($_POST['submit'])){
 				values("'.$Address.'","'.$Desc.'",'.$UsrID.')';
      mysqli_query($link,$locata);
  }
+
+//harvest the location for the session
+	$search ='select LID from location where Lname = "'.$Address.'";';
+	$waldo  = mysqli_query($link,$search);
+	while($rowrow = mysqli_fetch_row($waldo)){
+	$UsrLocat = $rowrow[0];	
+	}
+//store the required user stuff as session variables
+	$_SESSION['currentuser']=$UsrID;
+	$_SESSION['currentlocation'] = $UsrLocat;
+	//echo($_SESSION['currentuser']);
+	//echo($_SESSION['currentlocation']);
 }
 ?>
 </body>
