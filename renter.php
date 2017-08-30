@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start() ?>
 <html>
   <head>
   <head>
@@ -7,7 +8,7 @@
   <body>
   	<img src="http://imgur.com/MJw1ovr.jpg"/>
  <?php  
-
+ $user = $_SESSION['currentuser'];
  require('connect.php');
  $summStorer = "Select UID,Fname,Lname,Phnum from users where Acctype = 'Storer'"; //find some storers
  $rresult = mysqli_query($link,$summStorer);  
