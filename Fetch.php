@@ -1,16 +1,20 @@
 <!DOCTYPE html>
+<?php session_start() ?>
 <html>
   <head>
   <head>
- 	<link type='text/css' rel='stylesheet' href='style.css'/>
+  <link type='text/css' rel='stylesheet' href='style.css'/>
     <title>WAirHouse</title>
   <body>
-  	<img src="http://imgur.com/MJw1ovr.jpg"/>
- <?php    
+    <img src="http://imgur.com/MJw1ovr.jpg"/>
+ <?php 
+ $user = $_SESSION['currentuser'];
+ //echo($user);
+ //phpinfo();
  //query engine 
  require('connect.php');
  print "The Items you currently have registered:";
- $query = stripslashes("Select * from Items where Owner = $_SESSION['currentuser']");  //Find the items the user owns
+ $query = "Select * from Items where Owner = ".$user."";  //Find the items the user owns
  $result = mysqli_query($link,$query);  
  $rows = mysqli_num_rows($result); 
  //print "There are  $rows results<p>";  
