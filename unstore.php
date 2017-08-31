@@ -4,9 +4,14 @@
 		<tr><td>Item ID</td>                    <input type="text" name="IID"><td></td></tr>
 		<tr><td>Find item:<td><td>                 <input type="submit" name="submit"></td></tr>
 	</table>
-</form>
+
 
 </body>
+<img src="http://imgur.com/MJw1ovr.jpg"/>
+    <form action="Homepage_loggedin.php" method="get">
+		 <input type="submit" formaction="Homepage_loggedin.php" value="my items">
+	  </form>
+
 <?php
 if (isset($_POST['submit'])){
 	//stuff to add to the table
