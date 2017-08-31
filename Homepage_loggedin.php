@@ -2,6 +2,7 @@
 <?php session_start() ?>
 <html>
 	<head><title>Homepage</title></head>
+	<link type='text/css' rel='stylesheet' href='style.css'/>
   <body>
     <img src="http://imgur.com/MJw1ovr.jpg"/>
 	  <form action="Homepage_loggedin.php" method="post">
