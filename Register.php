@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php session_start() ?>
 <html>
-  <head><title>Register a New Account</title></head>
+  <head><title>Register</title></head>
  	<link type='text/css' rel='stylesheet' href='style.css'/>
   <body>
   	<img src="http://imgur.com/MJw1ovr.jpg"/>
