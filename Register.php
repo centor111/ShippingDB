@@ -63,6 +63,7 @@ if (isset($_POST['submit'])){
 //store the required user stuff as session variables
 	$_SESSION['currentuser']=$UsrID;
 	$_SESSION['currentlocation'] = $UsrLocat;
+	header("Location: http://localhost/wairhouse/homepage_loggedin.php");
 	//echo($_SESSION['currentuser']);
 	//echo($_SESSION['currentlocation']);
 }
