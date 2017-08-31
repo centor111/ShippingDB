@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	<head><title>Retrieve an Item</title></head>
 	<table>
 		<tr><td>Item ID</td>                    <input type="text" name="IID"><td></td></tr>
 		<tr><td>Find item:<td><td>                 <input type="submit" name="submit"></td></tr>
@@ -13,6 +14,7 @@
 	  </form>
 
 <?php
+require('connect.php');
 if (isset($_POST['submit'])){
 	//stuff to add to the table
   $a = $_POST['IID'];
@@ -24,10 +26,6 @@ if (isset($_POST['submit'])){
                where ((IID = '.$a.') and (Owner = '.$_Session['currentuser'].') and (Status = "Live")'
     mysql_query($link,$Update);
     
-		
-  
-  
-	require('connect.php');
 	$a = $_POST['itmname'];
 	$b = 'LIVE';             //0 is storage required, 1 is currently stored, 2 is retreived
   $c = $_SESSION['CurrentUser'];
