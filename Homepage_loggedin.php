@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start() ?>
 <html>
 	<head><title>Homepage</title></head>
   <body>
@@ -9,34 +10,37 @@
   <?php
 	  if (isset($_POST['submit'])){
 		  session_unset(); 
-		session_destroy();
+		  session_destroy();
+      echo('Logged Out.');
 	  } else {
-  switch (mysql_query($link,'select acctype from users where UID = '.$_SESSION['currentuser'].'') {
+      $user = $_SESSION['currentuser'];
+      $test ='select acctype from users where UID = $user';
+      $result = mysql_query($link, $test);
+      while($row = mysqli_fetch_row($result)) {
+      $testquery = $row[0] ;
+      }
+  switch ($testquery) {
     case "renter":
       ?> 
       <form action="Homepage_loggedin.php" method="get">
- <input type="submit" formaction="fetch.php" value="my items"> 
- <input type="submit" formaction="iteminsert.php" value="create new ad">
- <input type="submit" formaction="Renter.php" value="store an item"> 
- <input type="submit" formaction="unstore.php" value="Submit to Page3">
-    </form> 
-    <?php
+      <input type="submit" formaction="fetch.php" value="my items"> 
+      <input type="submit" formaction="iteminsert.php" value="create new ad">
+      <input type="submit" formaction="Renter.php" value="store an item"> 
+      <input type="submit" formaction="unstore.php" value="Submit to Page3">
+      </form> 
+      <?php
         break;
     case "storer":
-	 
-	  if (isset($_POST['submit'])){
-		  session_unset(); 
-		session_destroy();
-	  } else { ?>
+	    ?>
        <form action="Homepage_loggedin.php" method="get">
- <input type="submit" formaction="storefetch.php" value="my items"> 
-	</form>
-	  <?php }
-	  
+       <input type="submit" formaction="storefetch.php" value="my items"> 
+	     </form>
+	    <?php
         break;
     case "transporter":
         Echo "Work in Progress";
         break;
-}}
+      }
+    }
   ?>
 </html>
