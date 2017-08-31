@@ -1,4 +1,4 @@
-  <?php session_start() ?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
   <head><title>Login</title></head>
@@ -22,13 +22,12 @@
 if (isset($_POST['submit'])){
 	require('connect.php');
 	$username = $_POST['myusername'];  //harvest
-	$password = $_POST['mypassword'];
-	$password = hash('whirlpool', $password);
-	$sql ="SELECT Email, Pass, UID from users where Email = '$username' and pass = '$password'";
+	$password = hash('whirlpool', $_POST['mypassword']);
+	$sql ="SELECT * from users where Email = '".$username."' and pass = '".$password."'";
 	$result=mysqli_query($link,$sql);
 
-	$count=mysql_num_rows($result); //counting table rows
-
+	$count=mysqli_num_rows($result); //counting table rows
+	echo($count);
 	if($count==1){ // If result matched $myusername and $mypassword, table row must be 1 row
 	$queryy='select UID from users where Email = "$username"';  ///find the accociated UID
 	$result= mysqli_query($link,$queryy);
