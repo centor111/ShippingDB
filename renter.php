@@ -56,6 +56,29 @@
     echo "</table>";
 } else {
     echo "You have no registered items :(";
+} //user decision on transfer
+?>
+<form name="harvester" action="renter.php" method="post" id="register">
+  <table>
+    <tr><td>Item ID:</td>                    <input type="number" name="item" required><td></td></tr>
+    <tr><td>Storer ID:</td><td>                   <input type="number" name="storer" required></td></tr>
+    <tr><td>Register:</td><td>                 <input type="submit" name="submit"></td></tr>
+  </table>
+  </form>
+<?php
+if (isset($_POST['submit'])){ //harvest the user's selection
+  $IID = $_POST['item'];
+  $SID = $_POST['storer'];
+
+  //Check for valid combination
+  $sql = 'SELECT IID, Storer from Items where IID ='.$IID.' and Storer = '.$SID.'';
+  $out = mysqli_query($link, $sql); 
+  $count = mysqli_num_rows($out); //counting table rows
+
+  if ($count == 1) {
+    $update = 'UPDATE items set Owner = '.$user.' WHERE IID = '.$IID.' and Storer = '.$SID.''; //Update table statement 
+    mysqli_query($link,$update);
+  } 
 }
  ?>
   </body>
