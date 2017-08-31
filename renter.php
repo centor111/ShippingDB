@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php session_start() ?>
 <html>
-  <head>
-  <head>
+	<head><title>Transfer an Item</title><head>
  	<link type='text/css' rel='stylesheet' href='style.css'/>
     <title>WAirHouse</title>
   <body>
