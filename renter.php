@@ -12,12 +12,12 @@
  <?php  
  $user = $_SESSION['currentuser'];
  require('connect.php');
- $summStorer = "Select UID,Fname,Lname,Phnum from users where Acctype = 'Storer'"; //find some storers
+ $summStorer = "SELECT UID, Fname, Lname, Phnum FROM users WHERE AccType = 'Storer'"; //find some storers
  $rresult = mysqli_query($link,$summStorer);  
  $rrows = mysqli_num_rows($rresult); 
  $ccolumns = mysqli_num_fields($rresult);    
 //format the table of users
- if ($rresult->num_rows > 0) {
+ if ($rresult->num_rows > 1) {
     echo "<table border= 1>
       <tr>
         <th>UID</th>
@@ -27,7 +27,7 @@
     // output data of each row
     while($roww = mysqli_fetch_row()) {
         echo "<tr>
-          <td>".$roww["UID"]."</td><td>".$row["Fname"].$roww["Lname"]."</td><td>".$roww["Phone Number"]."</td>
+          <td>".$roww["UID"]."</td><td>".$roww["Fname"].$roww["Lname"]."</td><td>".$roww["Phone Number"]."</td>
               </tr>";
     }
     echo "</table>";
