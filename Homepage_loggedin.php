@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head
-   </head>
+	<head><title>Homepage</title></head>
   <body>
     <img src="http://imgur.com/MJw1ovr.jpg"/>
 	  <form action="Homepage_loggedin.php" method="post">
