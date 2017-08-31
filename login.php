@@ -35,7 +35,7 @@ if (isset($_POST['submit'])){
     while($row = mysqli_fetch_row($result)) {
     $UsrID = $row[0] ;
 	$_SESSION['currentuser'] = $UsrID; //store to session
-	echo '<br><a href="Homepage_loggedin.php"></a>'; //redirect to homepage
+	header("Location: http://localhost/wairhouse/homepage_loggedin.php"); //redirect to homepage
 	}
 	}else {
 	echo "Wrong Username or Password";
