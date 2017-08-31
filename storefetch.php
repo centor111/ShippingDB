@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php session_start() //start the session ?>
 <html>
-  <head>
-  <head>
+  <head>My Current Tasks<head>
  	<link type='text/css' rel='stylesheet' href='style.css'/>
     <title>WAirHouse</title>
   <body>
@@ -15,7 +14,7 @@
  //query engine 
  require('connect.php');
  print "The Items you currently have registered:";
- $query = "Select * from Items where storer = $user";  //Find the items the user owns
+ $query = "Select * from Items where storer = $user";  //Find the items stored by the user
  $result = mysqli_query($link,$query);  
  $rows = mysqli_num_rows($result); 
  //print "There are  $rows results<p>";  
