@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start() //start the session ?>
 <html>
   <head>
   <head>
@@ -6,11 +7,12 @@
     <title>WAirHouse</title>
   <body>
   	<img src="http://imgur.com/MJw1ovr.jpg"/>
- <?php    
+ <?php  
+ $user = $_SESSION['currentuser'];
  //query engine 
  require('connect.php');
  print "The Items you currently have registered:";
- $query = stripslashes("Select * from Items where storer = $_SESSION['Currentuser']");  //Find the items the user owns
+ $query = "Select * from Items where storer = $user";  //Find the items the user owns
  $result = mysqli_query($link,$query);  
  $rows = mysqli_num_rows($result); 
  //print "There are  $rows results<p>";  
