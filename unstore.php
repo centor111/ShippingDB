@@ -40,13 +40,13 @@ print "The Items you currently have registered:";
 }
 if (isset($_POST['submit'])){
 	//stuff to add to the table
-  $a = $_POST['IID'];
+  $IID = $_POST['IID'];
   $mystoreditems = 'select count(*) from items where ((IID = '.$a.') and (Owner = '.$_Session['currentuser'].') and (Status = "Live")';
   $valid = mysqli_query($link,$mystoreditems);
   if($valid == 1) {
-    $Update = 'Update items
-               set IStatus = "Retrieved, Storer = '.$user.', Location = '.$_SESSION['Currentlocation'].'
-               where ((IID = '.$a.') and (Owner = '.$user.') and (Status = "stored")';
+    $Update = 'UPDATE items
+               set IStatus = "retrieved", Storer = '.$user.', Location = '.$_SESSION['Currentlocation'].'
+                where ((IID = '.$IID.') and (Owner = '.$user.') and (IStatus = "stored"))';
     mysql_query($link,$Update);
 }
 }
