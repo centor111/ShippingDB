@@ -7,6 +7,9 @@
     <title>WAirHouse</title>
   <body>
   	<img src="http://imgur.com/MJw1ovr.jpg"/>
+    <form action="Homepage_loggedin.php" method="get">
+		 <input type="submit" formaction="Homepage_loggedin.php" value="my items">
+	  </form>
  <?php  
  $user = $_SESSION['currentuser'];
  //query engine 
