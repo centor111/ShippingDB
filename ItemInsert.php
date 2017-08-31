@@ -22,10 +22,10 @@ if (isset($_POST['submit'])){
 	//stuff to add to the table
 	require('connect.php');
 	$a = $_POST['itmname'];
-	$b = '0';             //0 is storage required, 1 is currently stored, 2 is retreived
+	$b = 'live';             //0 is storage required, 1 is currently stored, 2 is retreived
   $c = $_SESSION['CurrentUser'];
-	$d = $_SESSION['CurrentUser'];              //no storer not applicable
-	$e = $_SESSION['CurrentLocation'];              //no storer not applicable
+	$d = $_SESSION['CurrentUser'];              //no storer on creation, set it to the owner (renter)
+	$e = $_SESSION['CurrentLocation'];              //set the location of the item to the renter's home
 	$f = $_POST['desc'];
 //handle photos later
 	$insert = 'insert into items(IName,IStatus,Owner,Storer,Location,IDesc)
