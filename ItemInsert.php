@@ -3,8 +3,10 @@
   <head><title>Register a Item</title></head>
  	<link type='text/css' rel='stylesheet' href='style.css'/>
   <body>
+	  <img src="http://imgur.com/MJw1ovr.jpg"/>
+ 
 	  <form action="Homepage_loggedin.php" method="get">
-		 <input type="submit" formaction="Homepage_loggedin.php" value="my items">
+		 <input type="submit" formaction="Homepage_loggedin.php" value="home">
 	  </form>
   	<img src="http://imgur.com/MJw1ovr.jpg"/><form name="adderer" action="register.php" method="post">
 	<table>
