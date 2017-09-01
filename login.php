@@ -22,14 +22,6 @@
 if (isset($_POST['submit'])){
 	require('connect.php');
 	$username = $_POST['myusername'];  //harvest
-	//harvest the location for the session
-	$search ='select LID from location where Owner = '.$username.';';
-	$waldo  = mysqli_query($link,$search);
-	while($rowrow = mysqli_fetch_row($waldo)){
-	$UsrLocat = $rowrow[0];	
-	}
-	$_SESSION['currentlocation'] = $UsrLocat;//commit to the session
-
 	$password = hash('whirlpool', $_POST['mypassword']); //encrypt the password
 	$sql ="SELECT * from users where Email = '".$username."' and pass = '".$password."'";
 	$result=mysqli_query($link,$sql);
@@ -42,6 +34,13 @@ if (isset($_POST['submit'])){
     while($row = mysqli_fetch_row($result)) {
     $UsrID = $row[0] ;
 	$_SESSION['currentuser'] = $UsrID; //store to session
+	//harvest the location for the session
+	$search ='select LID from location where Owner = '.$username.';';
+	$waldo  = mysqli_query($link,$search);
+	while($rowrow = mysqli_fetch_row($waldo)){
+	$UsrLocat = $rowrow[0];	
+	}
+	$_SESSION['currentlocation'] = $UsrLocat;//commit to the session
 	header("Location: http://localhost/wairhouse/homepage_loggedin.php"); //redirect to homepage
 	}
 	}else {
