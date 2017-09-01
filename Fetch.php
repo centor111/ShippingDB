@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php session_start() //start the session ?>
 <html>
-  <head><title>My Current Tasks</title><head>
+  <head><title>My Items</title><head>
   <link type='text/css' rel='stylesheet' href='style.css'/>
     <title>WAirHouse</title>
   <body>
