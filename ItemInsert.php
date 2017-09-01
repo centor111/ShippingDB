@@ -29,6 +29,7 @@ if (isset($_POST['submit'])){
 	$insert = 'insert into items(IName,IStatus,Owner,Storer,Location,IDesc)
 			 values ("'.$a.'","'.$b.'","'.$c.'","'.$d.'","'.$e.'","'.$f.'")';
 	mysql_query($link,$insert);
+	header("Location: http://localhost/wairhouse/Homepage_loggedin.php"); 
 }
 ?>
 </body>
