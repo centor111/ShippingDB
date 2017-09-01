@@ -2,15 +2,14 @@
 <?php session_start() ?>
 <html>
 	<head><title>Homepage</title></head>
-	<link type='text/css' rel='stylesheet' href='style.css'/>
   <body>
     <img src="http://imgur.com/MJw1ovr.jpg"/>
+    <link type='text/css' rel='stylesheet' href='style.css'/>
 	  <form action="Homepage_loggedin.php" method="post">
  		<input type="submit" action="post" name="submit" value="Log out"> 
 	  </form>
   <?php
-  require('connect.php');
- // $testquery = 'renter'; //automatically changes, need to be pre defined as something however. breaks if this isnt here.
+    require('connect.php');
 	  if (isset($_POST['submit'])){ //end the session when this button is clicked
 		  session_unset(); 
 		  session_destroy();
@@ -21,9 +20,9 @@
       $result = mysqli_query($link, $test);
       while($row = mysqli_fetch_row($result)) {
       $testquery = $row[0] ; //plate up
-      }
-  switch ($testquery) {
-    case "renter": //if the current user is a renter
+
+      switch ($testquery) {
+      case "renter": //if the current user is a renter
       ?> 
       <form action="Homepage_loggedin.php" method="get">
       <input type="submit" formaction="fetch.php" value="my items"> 
@@ -33,7 +32,7 @@
       </form> 
       <?php
         break;
-    case "storer": //if the current user is a storer
+      case "storer": //if the current user is a storer
 	    ?>
        <form action="Homepage_loggedin.php" method="get">
        <input type="submit" formaction="storefetch.php" value="my items"> 
@@ -44,6 +43,7 @@
         Echo "Work in Progress";
         break;
       }
-    }
+      }
+  }
   ?>
 </html>
