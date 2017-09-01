@@ -22,7 +22,15 @@
 if (isset($_POST['submit'])){
 	require('connect.php');
 	$username = $_POST['myusername'];  //harvest
-	$password = hash('whirlpool', $_POST['mypassword']);
+	//harvest the location for the session
+	$search ='select LID from location where Owner = '.$username.';';
+	$waldo  = mysqli_query($link,$search);
+	while($rowrow = mysqli_fetch_row($waldo)){
+	$UsrLocat = $rowrow[0];	
+	}
+	$_SESSION['currentlocation'] = $UsrLocat;//commit to the session
+
+	$password = hash('whirlpool', $_POST['mypassword']); //encrypt the password
 	$sql ="SELECT * from users where Email = '".$username."' and pass = '".$password."'";
 	$result=mysqli_query($link,$sql);
 
