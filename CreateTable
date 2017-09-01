@@ -1,5 +1,5 @@
 order of creation
-users > items > location > vehicle > trip > events > caters > specialty > renter > storer > Transporter> tag 
+users > location > items > vehicle > trip > events > caters > specialty > renter > storer > Transporter> tag 
 
 CREATE TABLE Items(
 IID 	    integer NOT NULL AUTO_INCREMENT,
