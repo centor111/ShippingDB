@@ -10,6 +10,7 @@
 	  </form>
   <?php
   require('connect.php');
+ // $testquery = 'renter'; //automatically changes, need to be pre defined as something however. breaks if this isnt here.
 	  if (isset($_POST['submit'])){ //end the session when this button is clicked
 		  session_unset(); 
 		  session_destroy();
