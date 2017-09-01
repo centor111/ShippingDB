@@ -1,6 +1,13 @@
-INSERT INTO Users VALUES (1,'renter','password','John','Doe','1995-05-02 06:22:14','0465454065','John.Doe@gmail.com','JohnDoe.png');
-INSERT INTO USERS VALUES (2,'Storer','wordpass','Billibob','Jakins','1985-03-06 04:12:02','0414326096','BilDaBob.Hotmail.com','anne.jpeg');
-INSERT INTO LOCATION Values(1,'24 Stellmac st', 'An empty attic in the roof of the house',2)
+INSERT INTO Users VALUES (1,'renter','74dfc2b27acfa364da55f93a5caee29ccad3557247eda238831b3e9bd931b01d77fe994e4f12b9d4cfa92a124461d2065197d8cf7f33fc88566da2db2a4d6eae','John','Doe','1995-05-02 06:22:14','0465454065','John.Doe@gmail.com','JohnDoe.png');
+INSERT INTO USERS VALUES (2,'Storer','74dfc2b27acfa364da55f93a5caee29ccad3557247eda238831b3e9bd931b01d77fe994e4f12b9d4cfa92a124461d2065197d8cf7f33fc88566da2db2a4d6eae','Billy','Jakins','1985-03-06 04:12:02','0414326096','BilDaBob.Hotmail.com','anne.jpeg');
+INSERT INTO LOCATION Values(1,'24 Stellmac st', 'An empty attic in the roof of the house',2);
+INSERT INTO LOCATION Values(2,'6 main avenue', 'My house',1);
 INSERT INTO Items VALUES (1,'Box-Toys','Live',1,2,1,'A box of toys bound for college');
-INSERT INTO Storer VALUES(2,0,'Paypal')
-INSERT INTO Renter VALUES(1,'Paypal',0)
+INSERT INTO Storer VALUES(2,0,'Paypal');
+INSERT INTO Renter VALUES(1,'Paypal',0);
+INSERT INTO `users` (`UID`, `AccType`, `Pass`, `Fname`, `Lname`, `Bday`, `Phnum`, `Email`) VALUES (NULL, 'Renter', '74dfc2b27acfa364da55f93a5caee29ccad3557247eda238831b3e9bd931b01d77fe994e4f12b9d4cfa92a124461d2065197d8cf7f33fc88566da2db2a4d6eae', 'Oscar', 'Bradford', '2000-04-02', '0478415406', 'oscar.bradford13@gmail.com')
+INSERT INTO `users` (`UID`, `AccType`, `Pass`, `Fname`, `Lname`, `Bday`, `Phnum`, `Email`) VALUES (NULL, 'Storer', '74dfc2b27acfa364da55f93a5caee29ccad3557247eda238831b3e9bd931b01d77fe994e4f12b9d4cfa92a124461d2065197d8cf7f33fc88566da2db2a4d6eae', 'Archibald', 'Andrews', '1932-12-15', '0417545376', 'Archie.Andrews@Rivermail.com')
+INSERT INTO `users` (`UID`, `AccType`, `Pass`, `Fname`, `Lname`, `Bday`, `Phnum`, `Email`) VALUES (NULL, 'Renter', '74dfc2b27acfa364da55f93a5caee29ccad3557247eda238831b3e9bd931b01d77fe994e4f12b9d4cfa92a124461d2065197d8cf7f33fc88566da2db2a4d6eae', 'Dan', 'Briggs', '1974-02-12', '0417540444', 'Mission@hotmail.com')
+INSERT INTO `location` (`LID`, `LName`, `LDesc`, `Owner`) VALUES (NULL, '24 Hewitt st', 'Empty garage under house', '56')
+INSERT INTO `location` (`LID`, `LName`, `LDesc`, `Owner`) VALUES (NULL, '33 Ouch st', 'A large cellar', '57')
+INSERT INTO `location` (`LID`, `LName`, `LDesc`, `Owner`) VALUES (NULL, 'Secret st', 'This place doesnt exist', '58')
