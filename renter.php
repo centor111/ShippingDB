@@ -80,3 +80,9 @@ if (isset($_POST['submit'])){ //harvest the user's selection
     mysqli_query($link,$update);
     $store = "INSERT INTO events (Item, Location, Rate) 
               values(".$IID.",".$locat.",10)"; //10 will be replaced with a storer chosen price in later versions
+	  mysqli_query($link,$store);
+} 
+}
+ ?>
+  </body>
+</html>
