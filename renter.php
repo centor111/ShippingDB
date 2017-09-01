@@ -71,15 +71,12 @@ if (isset($_POST['submit'])){ //harvest the user's selection
   $SID = $_POST['storer'];
 
   //Check for valid combination
-  $sql = 'SELECT IID, Storer from Items where IID ='.$IID.' and Storer = '.$SID.'';
+  $sql = 'SELECT IID, Storer from Items where IID ='.$IID.' and Storer = '.$user.'';
   $out = mysqli_query($link, $sql); 
   $count = mysqli_num_rows($out); //counting table rows
 
   if ($count == 1) {
-    $update = 'UPDATE items set Owner = '.$user.' WHERE IID = '.$IID.' and Storer = '.$SID.''; //Update table statement 
+    $update = 'UPDATE items set Owner = '.$SID.' WHERE IID = '.$IID.' and Storer = '.$user.''; //Update table statement 
     mysqli_query($link,$update);
-  } 
-}
- ?>
-  </body>
-</html>
+    $store = "INSERT INTO events (Item, Location, Rate) 
+              values(".$IID.",".$locat.",".10.")";
