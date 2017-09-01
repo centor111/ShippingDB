@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php session_start() //start the session ?>
 <html>
-  <head>My Current Tasks<head>
+	<head><title>My Current Tasks</title><head>
  	<link type='text/css' rel='stylesheet' href='style.css'/>
     <title>WAirHouse</title>
   <body>
@@ -13,7 +13,7 @@
  $user = $_SESSION['currentuser'];
  //query engine 
  require('connect.php');
- print "The Items you currently have registered:";
+ print "The Items you currently have in your possession: ";
  $query = "Select * from Items where storer = $user";  //Find the items stored by the user
  $result = mysqli_query($link,$query);  
  $rows = mysqli_num_rows($result); 
@@ -34,7 +34,7 @@
     }
     echo "</table>";
 } else {
-    echo "You have no registered items :(";
+    echo " You have no items :(";
 }
  ?>
   </body>
