@@ -24,7 +24,7 @@
       switch ($testquery) {
       case "renter": //if the current user is a renter
       ?> 
-      <form action="Homepage_loggedin.php" method="get">
+      <form name="renter" action="Homepage_loggedin.php" method="post" id="renterstuff">
       <input type="submit" formaction="fetch.php" value="my items"> 
       <input type="submit" formaction="iteminsert.php" value="create new ad">
       <input type="submit" formaction="Renter.php" value="store an item"> 
@@ -34,7 +34,7 @@
         break;
       case "storer": //if the current user is a storer
 	    ?>
-       <form action="Homepage_loggedin.php" method="get">
+       <form name="storer" action="Homepage_loggedin.php" method="post" id="storerstuff">
        <input type="submit" formaction="storefetch.php" value="my items"> 
 	     </form>
 	    <?php
